@@ -23,9 +23,20 @@
     </tbody>
   </table>
 </div>
-<form action="save" th:attr="action=@{${myPage.formAction}}">
-  <input type="text" name="name" />
-  <input type="submit" value="Submit" th:attr="value=${myPage.submitValue}"/>
+<form method="POST" action="/addUser">
+  <label for="name">Name </label>
+  <input name="name" type="text" id="name">
+
+  <label for="lastName">lastName </label>
+  <input name="lastName" type="text" id="lastName">
+
+  <label for="age">Age </label>
+  <input name="age" type="text" id="age">
+
+  <label for="email">Email </label>
+  <input name="email" type="text" id="email">
+
+  <button type="submit">Add</button>
 </form>
 </body>
 </html>
