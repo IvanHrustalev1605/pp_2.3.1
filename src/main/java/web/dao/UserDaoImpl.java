@@ -20,7 +20,7 @@ public class UserDaoImpl implements UserDao{
     }
 
     @Override
-    public void deleteById(int id) {
+    public void deleteById(Long id) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
             var thisUser = session.get(User.class, id);
@@ -30,12 +30,13 @@ public class UserDaoImpl implements UserDao{
     }
 
     @Override
-    public void update(int id) {
-//        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-//            Transaction transaction = session.beginTransaction();
-//            session.update(User.class, id);
-//            transaction.commit();
-//        }
+    public User getUserById(Long id) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+           User user = session.get(User.class, id);
+            transaction.commit();
+            return user;
+        }
     }
 
     @Override

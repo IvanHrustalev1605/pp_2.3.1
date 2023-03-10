@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Users</title>
@@ -8,35 +8,36 @@
 <div>
   <table border="2" style="width:300px" bgcolor="aqua">
     <tr>
+      <th>ID</th>
       <th>Имя</th>
       <th>Фамилия</th>
       <th>Возраст</th>
       <th>Email</th>
+      <th>Посмотреть пользователя</th>
+      <th>Удалить</th>
     </tr>
     <tbody>
     <tr th:each="user : ${users}">
+      <td th:text="${user.id}"></td>
       <td th:text="${user.name}"></td>
       <td th:text="${user.lastName}"></td>
       <td th:text="${user.age}"></td>
       <td th:text="${user.email}"></td>
+      <td><a th:href="@{user/{id}(id=${user.id})}">Подробнее</a></td>
+      <td>
+      <form method="delete" th:action="@{users/remove/{id}(id=${user.id})}" th:object="${user}">
+        <input name="_method" type="hidden" value="delete" />
+        <button type="submit">Delete</button>
+      </form>
+      </td>
     </tr>
     </tbody>
   </table>
 </div>
-<form method="POST" action="/addUser">
-  <label for="name">Name </label>
-  <input name="name" type="text" id="name">
-
-  <label for="lastName">lastName </label>
-  <input name="lastName" type="text" id="lastName">
-
-  <label for="age">Age </label>
-  <input name="age" type="text" id="age">
-
-  <label for="email">Email </label>
-  <input name="email" type="text" id="email">
-
-  <button type="submit">Add</button>
+<br>
+<form method="get" th:action="@{/users/addForm}">
+  <button type="submit">Add user</button>
 </form>
+
 </body>
 </html>

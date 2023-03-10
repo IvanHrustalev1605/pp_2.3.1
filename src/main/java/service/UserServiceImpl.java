@@ -14,13 +14,13 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public void deleteById(int id) {
+    public void deleteById(Long id) {
         userDao.deleteById(id);
     }
 
     @Override
-    public void update(int id) {
-
+    public <T> T getUserById(Long id){
+        return userDao.getUserById(id);
     }
 
     @Override

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OneUser</title>
+</head>
+<body>
+<ul>
+    <li th:text="${userById.name}">user name</li>
+    <li th:text="${userById.lastName}">user lastName</li>
+    <li th:text="${userById.age}">user age</li>
+    <li th:text="${userById.email}">user email</li>
+</ul>
+<form method="get" th:action="@{/users}">
+    <button type="submit">Back to all users</button>
+</form>
+</body>
+</html>
