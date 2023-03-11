@@ -1,9 +1,8 @@
 package web.dao;
 
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import util.HibernateUtil;
+import web.util.HibernateUtil;
 import web.model.User;
 
 import java.util.ArrayList;

@@ -9,7 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7bfc757-0858-4ec1-bc93-2f36ed1cb0f5" name="Changes" comment="09.03" />
+    <list default="true" id="c7bfc757-0858-4ec1-bc93-2f36ed1cb0f5" name="Changes" comment="10.03">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,7 +60,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/khrus/IdeaProjects/pp_2.2.2",
+    "last_opened_file_path": "C:/Users/khrus/IdeaProjects/pp_2.3.1",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -67,6 +69,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
+    "spring.configuration.checksum": "c5611d5c8c9f9e897d6bf480c0e77655",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -211,7 +214,9 @@
       <option name="presentableId" value="Default" />
       <updated>1678363345749</updated>
       <workItem from="1678363346958" duration="9597000" />
-      <workItem from="1678379936465" duration="10501000" />
+      <workItem from="1678379936465" duration="10668000" />
+      <workItem from="1678533309443" duration="632000" />
+      <workItem from="1678542904670" duration="27000" />
     </task>
     <task id="LOCAL-00001" summary="09.03">
       <created>1678372657248</created>

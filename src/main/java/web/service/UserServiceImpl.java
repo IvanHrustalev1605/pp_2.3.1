@@ -1,4 +1,4 @@
-package service;
+package web.service;
 
 import web.dao.UserDao;
 import web.dao.UserDaoImpl;

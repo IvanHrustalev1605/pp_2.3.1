@@ -1,4 +1,4 @@
-package util;
+package web.util;
 import java.util.Properties;
 
 import org.hibernate.SessionFactory;

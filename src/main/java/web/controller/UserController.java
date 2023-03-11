@@ -1,12 +1,11 @@
 package web.controller;
 
-import net.bytebuddy.matcher.StringMatcher;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
-import service.UserService;
-import service.UserServiceImpl;
+import web.service.UserService;
+import web.service.UserServiceImpl;
 import web.model.User;
 
 @Controller
@@ -35,7 +34,7 @@ public class UserController {
         userService.add(user);
         return "redirect:/users";
     }
-    @DeleteMapping(value = "/users/remove/{id}")
+    @RequestMapping(value = "/users/remove/{id}",  method = {RequestMethod.DELETE, RequestMethod.GET})
     public String deleteUser(
                              @PathVariable (value = "id") Long id) {
         UserService userService = new UserServiceImpl();
