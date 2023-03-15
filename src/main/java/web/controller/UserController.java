@@ -59,8 +59,9 @@ public class UserController {
     }
     @Transactional
     @PatchMapping(value = "user/{id}")
-    public String updateUser(@ModelAttribute(value = "user") User user) {
-        userServiceImpl.update(user);
+    public String updateUser(@ModelAttribute(value = "user") User user,
+                             @PathVariable("id") Long id) {
+        userServiceImpl.update(user, id);
         return "redirect:/users";
     }
 }
