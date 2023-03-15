@@ -8,12 +8,9 @@
 <body>
 <div>
 <h1 th:text="${message}"></h1>
-    <th:block th:each="msg : ${messages}">
-        <h1 th:text="${msg}"></h1>
-    </th:block>
+    <form method="get" th:action="@{/users}">
+        <button type="submit">Open users</button>
+    </form>
 </div>
-<form action="/spring_mvc_war_exploded/users" method="get">
-    <button type="submit">All users</button>
-</form>
 </body>
 </html>

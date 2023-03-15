@@ -14,19 +14,20 @@
       <th>Возраст</th>
       <th>Email</th>
       <th>Посмотреть пользователя</th>
+      <th>Изменить пользователя</th>
       <th>Удалить</th>
     </tr>
     <tbody>
     <tr th:each="user : ${users}">
-      <td th:text="${user.id}"></td>
-      <td th:text="${user.name}"></td>
-      <td th:text="${user.lastName}"></td>
-      <td th:text="${user.age}"></td>
-      <td th:text="${user.email}"></td>
-      <td><a th:href="@{user/{id}(id=${user.id})}">Подробнее</a></td>
+      <td th:text="${user.getId()}"></td>
+      <td th:text="${user.getName()}"></td>
+      <td th:text="${user.getLastName()}"></td>
+      <td th:text="${user.getAge()}"></td>
+      <td th:text="${user.getEmail()}"></td>
+      <td><a th:href="@{user/{id}(id=${user.getId()})}">Подробнее</a></td>
+      <td><a th:href="@{user/edit/{id}(id=${user.getId()})}">Изменить</a></td>
       <td>
-      <form method="delete" th:action="@{users/remove/{id}(id=${user.id})}" th:object="${user}">
-        <input name="_method" type="hidden" value="delete" />
+      <form method="delete" th:action="@{users/remove/{id}(id=${user.getId()})}" th:object="${user}">
         <button type="submit">Delete</button>
       </form>
       </td>

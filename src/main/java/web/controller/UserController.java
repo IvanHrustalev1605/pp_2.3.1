@@ -1,44 +1,66 @@
 package web.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import web.service.UserService;
-import web.service.UserServiceImpl;
+
 import web.model.User;
+import web.service.UserServiceImpl;
+
+import javax.validation.Valid;
+import java.util.List;
 
 @Controller
+//не могу понять почему update не обновляет а вставляет нового пользователя
 public class UserController {
-    @GetMapping(value = "/users")
-    public String printUser(ModelMap model) {
-        UserService userService = new UserServiceImpl();
-        model.addAttribute("users", userService.getAllUsers());
-        return "users";
+    @Autowired
+    private UserServiceImpl userServiceImpl;
+
+    @RequestMapping(value = "/users", method = RequestMethod.GET)
+    public String index(ModelMap modelMap, User user) {
+        List<User> userList = userServiceImpl.allUsers(user);
+        modelMap.addAttribute("users", userList);
+        return "views/users";
     }
+    @Transactional
     @GetMapping(value = "/user/{id}")
     public String getOneUser(@PathVariable(value = "id") Long id,
                              Model model) {
-        UserService userService = new UserServiceImpl();
-        model.addAttribute("userById",userService.getUserById(id));
-        return "oneUser";
+        model.addAttribute("userById",userServiceImpl.getUserById(id));
+        return "views/oneUser";
     }
+    @Transactional
     @GetMapping("/users/addForm")
     public String show(Model model) {
         model.addAttribute("user", new User());
-        return "userAddForm";
+        return "views/userAddForm";
     }
+    @Transactional
     @PostMapping("/users/add")
     public String addUser(@ModelAttribute ("user") User user) {
-        UserService userService = new UserServiceImpl();
-        userService.add(user);
+        userServiceImpl.create(user);
         return "redirect:/users";
     }
+    @Transactional
     @RequestMapping(value = "/users/remove/{id}",  method = {RequestMethod.DELETE, RequestMethod.GET})
     public String deleteUser(
-                             @PathVariable (value = "id") Long id) {
-        UserService userService = new UserServiceImpl();
-        userService.deleteById(id);
+            @PathVariable (value = "id") Long id) {
+        userServiceImpl.delete(id);
+        return "redirect:/users";
+    }
+    @RequestMapping(value = "user/edit/{id}", method = RequestMethod.GET)
+    public String edit(ModelMap model, @ModelAttribute(value = "id") Long id) {
+        model.addAttribute("user", userServiceImpl.getUserById(id));
+        return "views/userUpdateForm";
+    }
+    @Transactional
+    @PatchMapping(value = "user/{id}")
+    public String updateUser(@ModelAttribute(value = "user") User user) {
+        userServiceImpl.update(user);
         return "redirect:/users";
     }
 }

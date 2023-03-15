@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="kata_2.3.1" uuid="e67dc8f2-0e49-412f-8d78-175047036360">
+    <data-source source="LOCAL" name="entity_2.3.1" uuid="e67dc8f2-0e49-412f-8d78-175047036360">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/kata_2.3.1</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/entity_2.3.1</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="hibernate.cfg.xml/Hibernate" uuid="772bbc73-c48a-4ee8-9613-d085c3cf1677">
+    <data-source source="LOCAL" name="hibernate.cfg.xml/Hibernate" uuid="1f257635-6991-42aa-b042-fe0fa12d3112">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <imported>true</imported>
       <remarks>Hibernate
 
-C:/Users/khrus/IdeaProjects/pp_2.3.1/src/main/resources/hibernate.cfg.xml</remarks>
+C:/Users/khrus/IdeaProjects/pp_2.3.1(14.03)/src/main/resources/hibernate.cfg.xml</remarks>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/kata_2.3.1</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/entity_2.3.1</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

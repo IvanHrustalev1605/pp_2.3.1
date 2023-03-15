@@ -1,14 +1,19 @@
 package web.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.Objects;
-
-@Table
 @Entity
+@Table(name = "users")
+
 public class User {
+    @Column
     private String name;
+    @Column
     private String lastName;
+    @Column
     private int age;
+    @Column
     private String email;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,51 +1,42 @@
 package web.dao;
 
-import org.hibernate.Session;
-import org.hibernate.Transaction;
-import web.util.HibernateUtil;
+import org.springframework.stereotype.Repository;
 import web.model.User;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.ArrayList;
 import java.util.List;
-
-public class UserDaoImpl implements UserDao{
+@Repository
+public class UserDaoImpl implements UserDao {
+    @PersistenceContext()
+    private EntityManager entityManager;
     @Override
-    public void add(User user) {
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-                Transaction transaction = session.beginTransaction();
-                session.persist(user);
-                transaction.commit();
-        }
+    public void create(User user) {
+        entityManager.persist(user);
+        entityManager.close();
     }
 
     @Override
-    public void deleteById(Long id) {
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            Transaction transaction = session.beginTransaction();
-            var thisUser = session.get(User.class, id);
-            session.remove(thisUser);
-            transaction.commit();
-        }
+    public List<User> allUsers(User user) {
+        List<User> userList = new ArrayList<>();
+        String sql = "select user from User user";
+        userList =entityManager.createQuery(sql).getResultList();
+        return userList;
     }
 
     @Override
     public User getUserById(Long id) {
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            Transaction transaction = session.beginTransaction();
-           User user = session.get(User.class, id);
-            transaction.commit();
-            return user;
-        }
+        return entityManager.find(User.class, id);
     }
 
     @Override
-    public List<User> getAllUsers() {
-        List<User> userList = new ArrayList<>();
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            Transaction transaction = session.beginTransaction();
-            String sql = "From " + User.class.getSimpleName();
-            userList = session.createQuery(sql, User.class).getResultList();
-            return userList;
-        }
+    public void update(User userupdate) {
+        entityManager.merge(userupdate);
+    }
+
+    @Override
+    public void delete(Long id) {
+        entityManager.remove(entityManager.find(User.class, id));
     }
 }
