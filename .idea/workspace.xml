@@ -15,7 +15,6 @@
       <change beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/pages/views/oneUser.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/pages/views/oneUser.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/pages/views/userAddForm.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/pages/views/userAddForm.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/pages/views/userUpdateForm.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/pages/views/userUpdateForm.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/pages/views/users.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/pages/views/users.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -246,7 +245,7 @@
       <workItem from="1678864378462" duration="8557000" />
       <workItem from="1678873033485" duration="1754000" />
       <workItem from="1678882167407" duration="988000" />
-      <workItem from="1678885726936" duration="1844000" />
+      <workItem from="1678885726936" duration="2441000" />
     </task>
     <task id="LOCAL-00001" summary="09.03">
       <created>1678372657248</created>
@@ -276,7 +275,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678886171584</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="15.03">
+      <created>1678887616727</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1678887616728</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
