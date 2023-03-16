@@ -3,17 +3,17 @@ package web.model;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.util.Objects;
+
 @Entity
 @Table(name = "users")
-
 public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String name;
     private String lastName;
     private int age;
     private String email;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
     public User() {
     }

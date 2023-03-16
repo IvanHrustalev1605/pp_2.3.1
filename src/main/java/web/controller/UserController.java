@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.*;
 import web.model.User;
 import web.service.UserService;
 
-import java.util.List;
-
 @Controller
 public class UserController {
     private final UserService userService;
@@ -17,16 +15,10 @@ public class UserController {
     public UserController(UserService userService) {
         this.userService = userService;
     }
+
     @GetMapping("/")
-    public String index(ModelMap model) {
-        String str = "Hello, it's my first CRUD app!";
-        model.addAttribute("message", str);
-        return "views/index";
-    }
-    @GetMapping("/users")
     public String index(ModelMap modelMap, User user) {
-        List<User> userList = userService.allUsers(user);
-        modelMap.addAttribute("users", userList);
+        modelMap.addAttribute("users", userService.allUsers(user));
         return "views/users";
     }
     @GetMapping(value = "/user/{id}")
@@ -41,16 +33,15 @@ public class UserController {
         model.addAttribute("user", new User());
         return "views/userAddForm";
     }
-    @PostMapping("/users/add")
+    @PostMapping("/")
     public String addUser(@ModelAttribute ("user") User user) {
         userService.create(user);
-        return "redirect:/users";
+        return "redirect:/";
     }
-    //не пойму как исправить при DeleteMapping ошибка Request method 'GET' not supported
-    @RequestMapping(value = "/users/remove/{id}", method = {RequestMethod.DELETE,RequestMethod.GET})
+    @DeleteMapping("/{id}")
     public String deleteUser(@PathVariable ("id") Long id) {
         userService.delete(id);
-        return "redirect:/users";
+        return "redirect:/";
     }
     @GetMapping(value = "user/edit/{id}")
     public String edit(ModelMap model, @ModelAttribute(value = "id") Long id) {
@@ -61,6 +52,6 @@ public class UserController {
     public String updateUser(@ModelAttribute(value = "user") User user,
                              @PathVariable("id") Long id) {
         userService.update(user, id);
-        return "redirect:/users";
+        return "redirect:/";
     }
 }

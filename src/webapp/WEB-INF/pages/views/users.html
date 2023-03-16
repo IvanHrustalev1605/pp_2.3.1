@@ -29,7 +29,7 @@
       <td><a class="btn btn-outline-info btn-sm" th:href="@{user/{id}(id=${user.getId()})}">Подробнее</a></td>
       <td><a class="btn btn-outline-success btn-sm" th:href="@{user/edit/{id}(id=${user.getId()})}">Изменить</a></td>
       <td>
-      <form method="delete" th:action="@{users/remove/{id}(id=${user.getId()})}">
+      <form th:method="DELETE" th:action="@{/{id}(id=${user.getId()})}">
         <button class="btn btn-danger btn-sm" type="submit">Delete</button>
       </form>
       </td>
